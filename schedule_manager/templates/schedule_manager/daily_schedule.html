@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Nanny care schedule</title>
-    </head>
-    <body>
-        <p>Hi there!</p>
-        <p>It works!</p>
-    </body>
-</html>
+{% extends 'schedule_manager/base.html' %}
+{% block content %}        
+    {% for month_year, schedules in monthly_grouping.items%}
+        <h2> {{ month_year }} </h2> 
+        {% for schedule in schedules %}
+            <p> <strong><a href="">{{ schedule.date }} </a></strong>
+            {{schedule.start_time}} - {{schedule.end_time}} </p>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
