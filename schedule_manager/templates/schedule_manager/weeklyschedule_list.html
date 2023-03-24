@@ -1,0 +1,17 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+  <a href="{% url 'schedule_manager:weeklyschedule_create' %}">Add a schedule</a>
+  {% if weeklyschedule_list %}
+  <ul>
+    {% for weeklyschedule in weeklyschedule_list %}
+      <li>
+          {{ weeklyschedule.day1}} - {{weeklyschedule.day7}} 
+          (<a href="{% url 'schedule_manager:weeklyschedule_update' weeklyschedule.id %}">Update</a> |
+          <a href="{% url 'schedule_manager:weeklyschedule_delete' weeklyschedule.id %}">Delete</a>) <br/>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no schedules in the library.</p>
+  {% endif %}
+{% endblock %}

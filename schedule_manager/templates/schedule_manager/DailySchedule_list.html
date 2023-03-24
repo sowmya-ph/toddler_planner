@@ -1,0 +1,7 @@
+{% extends 'schedule_manager/base.html' %}
+{% block content %}        
+        {% for schedule in dailyschedule_list %}
+            <p> <strong><a href="">{{ schedule.date }} </a></strong>
+            {{schedule.start_time}} - {{schedule.end_time}} </p>
+        {% endfor %}
+{% endblock %}
